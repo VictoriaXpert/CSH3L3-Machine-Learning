@@ -32,5 +32,5 @@ plt.yticks(())
 plt.show()
 
 from sklearn.metrics import mean_squared_error
-
 print(mean_squared_error(y, predictions) * len(y))
+print(model.coef_)

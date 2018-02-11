@@ -22,7 +22,6 @@ y = df.iloc[:, -1].values
 
 # Find w and a predicted value
 w = countWeight(X, y)
-w = float(str(w).split("e")[0])
 
 # Predict the value
 y_predict = polynomialUni(X, w, 3)

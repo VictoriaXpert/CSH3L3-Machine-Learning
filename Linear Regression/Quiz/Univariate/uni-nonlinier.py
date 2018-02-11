@@ -26,6 +26,8 @@ for count, degree in enumerate([9,8,7,6,5,4,3]):
     plt.plot(X, prediction, color=colors[count], linewidth=lw,
              label="x^%d" % degree)
 
+    model.
+
 plt.legend(loc="best")
 
 

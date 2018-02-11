@@ -2,9 +2,10 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 
-
 def countWeight(X, y):
-    w = np.sum(((X - X.mean()) * (y - y.mean()))) / np.sum((X - X.mean())**2)
+    x_mean = X.mean()
+    y_mean = y.mean()
+    w = np.sum((X-x_mean) * (y - y_mean)) / np.sum(((X-x_mean) ** 2))
     return w
 
 
@@ -14,7 +15,7 @@ def countA(X, y, w):
 
 
 def countSquaredError(y, y_predicted):
-    return np.sum((y-y_predict) ** 2)
+    return np.sum((y - y_predict) ** 2)
 
 
 # Importing the dataset
@@ -24,11 +25,10 @@ y = df.iloc[:, -1].values
 
 # Find w and a predicted value
 w = countWeight(X, y)
-w = float(str(w).split("e")[0])
-a = countA(X, y, float(str(w).split("e")[0]))
+a = countA(X, y, w)
 
 # Predict y value
-y_predict = w * X + a
+y_predict = np.cross(w, X)
 
 # Count Err0r value
 error_val = countSquaredError(y, y_predict)
@@ -36,7 +36,7 @@ error_val = countSquaredError(y, y_predict)
 # Summaryzing
 print("Berikut persamaan garis regresi linier:")
 print("y = " + str(w) + "X + " + str(a))
-print("Dengan nilai error: ",error_val)
+print("Dengan nilai error: ", error_val)
 
 
 # Visualizing
