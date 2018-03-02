@@ -5,6 +5,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 import random
 
+##### Aditya Alif Nugraha #####
+##### 1301154183          #####
+##### IF 39-01            #####
 
 def open_csv_file(filename, set_type=""):
     # Soal A nomer 1
@@ -115,7 +118,8 @@ def countAccuracy(y_real, y_pred):
 def create_output_file(filename, y_answer):
     f = open(filename, "w+")
     f.truncate()
-    f.write(str(y_answer))
+    for wrt in y_answer:
+        f.write(str(wrt) + "\t")
     f.close()
 
 
