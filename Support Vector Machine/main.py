@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import matplotlib
 import pandas as pd
 from sklearn.model_selection import train_test_split
+from sklearn.naive_bayes import GaussianNB
 from sklearn import svm
 import fun
 import pnn
@@ -13,7 +14,7 @@ y = df.iloc[:, -1].values
 
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.33333333333333333333333333333333)
-fun.scatter3d_visualize(X_train, y_train)
+fun.scatter3d_visualize(X_train, y_train, "Train Set")
 
 # SVM
 clf_svm = svm.SVC()
@@ -29,3 +30,11 @@ y_pred = pnn.classification(X_train, y_train, X_test, 1.42)
 accuracy = fun.count_accuracy(y_pred, y_test)
 print("Akurasi PNN: " + str(accuracy))
 fun.scatter3d_visualize(X_test, y_pred, "PNN")
+
+
+# Naive Bayes
+gnb = GaussianNB()
+y_pred = gnb.fit(X_train, y_train).predict(X_test)
+accuracy = fun.count_accuracy(y_pred, y_test)
+print("Akurasi Naive Bayes: " + str(accuracy))
+fun.scatter3d_visualize(X_test, y_pred, "Naive Bayes")
