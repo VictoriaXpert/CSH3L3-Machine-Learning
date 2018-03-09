@@ -10,7 +10,7 @@ def scatter3d_visualize(X, y, title=""):
         xs = X[i][0]
         ys = X[i][1]
         zs = X[i][2]
-
+        
         if y[i] == 0:
             bundar = ax.scatter(xs, ys, zs, c="r", marker="o", label="Kelas 0")
         elif y[i] == 1:
