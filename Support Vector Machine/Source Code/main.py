@@ -48,12 +48,10 @@ fun.scatter3d_visualize(X_test, y_pred, "Naive Bayes")
 
 
 # MLP - Backpropagation
-mlp_clf = MLPClassifier(hidden_layer_sizes=(15, 15))
+mlp_clf = MLPClassifier()
 mlp_clf.fit(X_train, y_train)
 y_pred = mlp_clf.predict(X_test)
 print("Akurasi MLP - Backpropagation: " + str(accuracy))
 # plt.subplot(215)
 fun.scatter3d_visualize(X_test, y_pred, "MLP - Backpropagation")
 
-
-plt.show()
