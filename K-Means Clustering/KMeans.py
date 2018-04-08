@@ -18,14 +18,17 @@ def train(k, X, iteration):
     old_centroids = np.zeros_like(centroids)
 
     for _ in range(iteration):
-        clusters = {i: [] for i in range(k)}
+        clusters = {i: [] for i in range(k)}  # Mengosongkan anggota cluster.
 
+        # Membuat kluster dengan mengelompokkan data sesuai centroid terdekatnya.
         for row in X:
             distances = np.linalg.norm(row-centroids, axis=1)
             clusters[np.argmin(distances)].append(row)
 
+        # Digunakan untuk menghitung kondisi konvergen
         old_centroids[:, :] = centroids[:, :]
 
+        # Mengupdate titik centroid dengan rata-rata anggota kluster centroid tersebut.
         for i in range(len(centroids)):
             centroids[i] = np.mean(clusters[i], axis=0)
 
