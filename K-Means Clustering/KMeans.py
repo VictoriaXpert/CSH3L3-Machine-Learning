@@ -1,3 +1,9 @@
+"""
+Nama    : Aditya Alif Nugraha
+NIM     : 1301154183
+Kelas   : IF-39-01
+"""
+
 import random
 import numpy as np
 

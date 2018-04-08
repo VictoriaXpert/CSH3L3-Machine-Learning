@@ -1,3 +1,9 @@
+"""
+Nama    : Aditya Alif Nugraha
+NIM     : 1301154183
+Kelas   : IF-39-01
+"""
+
 import KMeans as kmeans
 import matplotlib.pyplot as plt
 from fun import load_data

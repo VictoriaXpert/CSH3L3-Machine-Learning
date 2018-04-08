@@ -1,3 +1,9 @@
+"""
+Nama    : Aditya Alif Nugraha
+NIM     : 1301154183
+Kelas   : IF-39-01
+"""
+
 import numpy as np
 import matplotlib.pyplot as plt
 import csv

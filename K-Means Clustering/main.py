@@ -1,3 +1,9 @@
+"""
+Nama    : Aditya Alif Nugraha
+NIM     : 1301154183
+Kelas   : IF-39-01
+"""
+
 from fun import load_data, visualize_data, write_to_file
 import KMeans as kmeans
 
