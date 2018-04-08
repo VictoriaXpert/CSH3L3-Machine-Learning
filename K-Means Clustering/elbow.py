@@ -1,4 +1,4 @@
-from sklearn.cluster import KMeans
+import KMeans as kmeans
 import matplotlib.pyplot as plt
 from fun import load_data
 
@@ -6,11 +6,11 @@ X_train = load_data("TrainsetTugas2.txt")
 
 err = []
 idx = []
-for i in range(1, 10):
+for i in range(1, 9):
+    print(i)
     idx.append(i)
-    kmn = KMeans(n_clusters=i, tol=0)
-    kmn.fit(X_train)
-    err.append(abs(kmn.score(X_train)))
+    centroids, clusters = kmeans.train(i, X_train, 300)
+    err.append(kmeans.getSumSquaredError(centroids, clusters))
 
 print(err)
 plt.plot(idx, err)
