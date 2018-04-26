@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0049)http://mnemstudio.org/path-finding-q-learning.htm -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Introduction to the Q-Learning Algorithm</title>
+<meta name="description" content="Q-Learning. Tutorial, Example 1, Example 2. Introduction. The Q-Learning algorithm was proposed as a way to optimize solutions in Markov decision process problems.  The distinctive feature of Q-Learning is in its capacity to choose between immediate rewards and delayed rewards.  At each step of time, an agent observes the vector of state xt, then chooses and applies an action ut. As the process moves to state xt+1, the agent receives a reinforcement r(xt, ut).  The goal of the training is to find the sequential order of actions which maximizes the sum of the future reinforcements, thus leading to the shortest path from start to finish. The transition rule of Q learning is a very simple formula: Q(state, action) = R(state, action) + gamma * Max[Q(next state, all actions)]. The gamma parameter has a range of 0 to 1 (0 &lt;= gamma &gt; 1), and ensures the convergence of the sum.  If gamma is closer to zero, the agent will tend to consider only immediate rewards.  If gamma is closer to one, the agent will consider future rewards with greater weight, willing to delay the reward. The Q-Learning algorithm goes as follows: 1. Set the gamma parameter, and environment rewards in matrix R. 2. Initialize matrix Q to zero. 3. For each episode: Select a random initial state. Do While the goal state hasn\&#39;t been reached. Select one among all possible actions for the current state. Using this possible action, consider going to the next state. Get maximum Q value for this next state based on all possible actions. Compute: Q(state, action) = R(state, action) + gamma * Max[Q(next state, all actions)]. Set the next state as the current state.">
+
+<link href="./Introduction to the Q-Learning Algorithm_files/main.css" rel="stylesheet" type="text/css">
+<link href="./Introduction to the Q-Learning Algorithm_files/main_menu.css" rel="stylesheet" type="text/css">
+<link href="./Introduction to the Q-Learning Algorithm_files/left_menu.css" rel="stylesheet" type="text/css">
+<link href="./Introduction to the Q-Learning Algorithm_files/news_menu.css" rel="stylesheet" type="text/css">
+<link href="./Introduction to the Q-Learning Algorithm_files/notepage.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<a name="top"></a> <!-- for those "back to top" links -->
+
+	<div class="main_container">
+		<div class="header">
+			<div class="control_row">
+				<div class="crButton1"><a href="http://mnemstudio.org/contact.php">Contact ();</a></div>
+				<div class="crButton2"><a href="http://mnemstudio.org/links-all-topics.htm">Links ();</a></div>
+				<div class="search_controls">
+					<input type="text" name="sitekeywords" class="search_box">
+					<input type="image" name="searchSite" id="search_button" value="submit" src="./Introduction to the Q-Learning Algorithm_files/search_button1.png" onclick="javascript: window.location=&#39;search.php?&amp;keywordBox=&#39; + document.getElementsByName(&#39;sitekeywords&#39;).item(0).value + &#39;&amp;strategy=all&amp;section=site&#39;;">
+				</div>
+			</div>
+
+			<div id="menu1">
+				<div class="menuButton1"><a href="http://mnemstudio.org/index.php">Home ();</a></div>
+				<div class="menuButton1"><a href="http://mnemstudio.org/artificial-intelligence-introduction.htm">AI ();</a></div>
+				<div class="menuButton1"><a href="http://mnemstudio.org/robots-introduction.htm">Robotics ();</a></div>
+				<div class="menuButton2"><a href="http://mnemstudio.org/misc-notes-introduction.htm">Notes ();</a></div>
+				<div class="menuButton2"><a href="http://mnemstudio.org/about.php">About ();</a></div>
+			</div>
+		</div><div class="navRow">
+<div class="navBranch"><a href="http://mnemstudio.org/index.php">Home</a> &gt; <a href="http://mnemstudio.org/artificial-intelligence-introduction.htm">AI Main</a> &gt; <a href="http://mnemstudio.org/path-finding-introduction.htm">Path-Finding</a> &gt; Q-Learning</div>
+<div class="socialBookmarks">
+	<a href="http://delicious.com/save" onclick="window.open(&#39;http://delicious.com/save?v=5&amp;noui&amp;jump=close&amp;url=&#39;+encodeURIComponent(location.href)+&#39;&amp;title=&#39;+encodeURIComponent(document.title), &#39;delicious&#39;,&#39;toolbar=no,width=550,height=550&#39;); return false;"><img src="./Introduction to the Q-Learning Algorithm_files/delicious16x16.gif" height="16" width="16" alt="Delicious" title="Bookmark this on delicious.com" border="0"></a>
+	<img src="./Introduction to the Q-Learning Algorithm_files/spacer_trans8x16.png">
+	<script type="text/javascript">document.write('<a href="http://www.stumbleupon.com/submit?url='+encodeURIComponent(location.href)+'&title%3D'+encodeURIComponent(document.title)+'"><img src="images/16x16_su_solid.gif" alt="StumbleUpon.com" border="0" title="Share this with StumbleUpon.com" /></a>');</script><a href="http://www.stumbleupon.com/submit?url=http%3A%2F%2Fmnemstudio.org%2Fpath-finding-q-learning.htm&amp;title%3DIntroduction%20to%20the%20Q-Learning%20Algorithm"><img src="./Introduction to the Q-Learning Algorithm_files/16x16_su_solid.gif" alt="StumbleUpon.com" border="0" title="Share this with StumbleUpon.com"></a>
+	<img src="./Introduction to the Q-Learning Algorithm_files/spacer_trans8x16.png">
+	<script type="text/javascript">document.write('<a href="http://www.facebook.com/sharer.php?u='+encodeURIComponent(location.href)+'&t='+encodeURIComponent(document.title)+'"><img src="images/facebook16x16.gif" alt="Facebook.com" border="0" title="Share this on Facebook.com" /></a>');</script><a href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fmnemstudio.org%2Fpath-finding-q-learning.htm&amp;t=Introduction%20to%20the%20Q-Learning%20Algorithm"><img src="./Introduction to the Q-Learning Algorithm_files/facebook16x16.gif" alt="Facebook.com" border="0" title="Share this on Facebook.com"></a>
+	<img src="./Introduction to the Q-Learning Algorithm_files/spacer_trans8x16.png">
+	<script type="text/javascript">document.write('<a href="http://digg.com/submit?url='+encodeURIComponent(location.href)+'&title='+encodeURIComponent(document.title)+'&bodytext=&media=news&topic=technology"><img src="images/digg_icon16x16.gif" alt="Digg.com" border="0" title="Digg this at Digg.com" /></a>');</script><a href="http://digg.com/submit?url=http%3A%2F%2Fmnemstudio.org%2Fpath-finding-q-learning.htm&amp;title=Introduction%20to%20the%20Q-Learning%20Algorithm&amp;bodytext=&amp;media=news&amp;topic=technology"><img src="./Introduction to the Q-Learning Algorithm_files/digg_icon16x16.gif" alt="Digg.com" border="0" title="Digg this at Digg.com"></a>
+	
+</div></div>
+<div class="leftColumn">
+<div class="leftMenuTitleDouble"><a href="http://mnemstudio.org/path-finding-introduction.htm">Path<br>Finding</a></div>
+<div class="leftMenuItemSingle"><a href="http://mnemstudio.org/path-finding-q-learning.htm">Q-Learning</a></div>
+<div class="leftLastMenuItemSingle"><a href="http://mnemstudio.org/path-finding-a-star.htm">A*</a></div><div class="leftMenuBottomSpacer"></div>
+</div>
+<div class="centerColumn">
+<div class="topic_title"><div class="content_title"><h1>Q-Learning .*;</h1></div></div>
+
+<ul class="topic_main_list">
+	<li><a href="http://mnemstudio.org/path-finding-q-learning-tutorial.htm">Tutorial</a></li>
+	<li><a href="http://mnemstudio.org/path-finding-q-learning-example-1.htm">Example 1</a></li>
+	<li><a href="http://mnemstudio.org/path-finding-q-learning-example-2.htm">Example 2</a></li>
+</ul>
+
+<div class="topic_passage">
+<div class="content_header"><h1>Introduction</h1></div>
+	<p>The Q-Learning algorithm was proposed as a way to optimize solutions in Markov decision process problems.&nbsp; The distinctive feature of Q-Learning is in its capacity to choose between immediate rewards and delayed rewards.&nbsp; At each step of time, an agent observes the vector of 
+	state x<sub>t</sub>, then chooses and applies an action u<sub>t</sub>. As the process moves to state x<sub>t+1</sub>, the agent receives a 
+	reinforcement r(x<sub>t</sub>, u<sub>t</sub>).&nbsp; The goal of the training is to find the sequential order of actions which maximizes the sum 
+	of the future reinforcements, thus leading to the shortest path from start to finish.</p>
+	<p>The transition rule of Q learning is a very simple formula:</p>
+	<blockquote>
+		<p>Q(state, action) = R(state, action) + gamma * Max<font size="4">[</font>Q(next state, all actions)<font size="4">]</font></p>
+	</blockquote>
+	<p>The gamma parameter has a range of 0 to 1 (0 &lt;= gamma &gt; 1), and ensures the convergence of the sum.&nbsp; If gamma is closer to zero, the agent will tend to consider only immediate rewards.&nbsp; If gamma is closer to one, the agent will consider future rewards with greater weight, willing to delay the reward.</p>
+	<p>The Q-Learning algorithm goes as follows:</p>
+	<blockquote>
+		<p>1. Set the gamma parameter, and environment rewards in matrix R.</p>
+		<p>2. Initialize matrix Q to zero.</p>
+		<p>3. For each episode:</p>
+		<blockquote>
+			<p>Select a random initial state.</p>
+			<p>Do While the goal state hasn't been reached.</p>
+			<ul>
+				<li>Select one among all possible actions for the current state.</li>
+				<li>Using this possible action, consider going to the next state.</li>
+				<li>Get maximum Q value for this next state based on all possible actions.</li>
+				<li>Compute: Q(state, action) = R(state, action) + gamma * Max<font size="4">[</font>Q(next state, all actions)<font size="4">]</font></li>
+				<li>Set the next state as the current state.</li>
+			</ul>
+			<p>End Do</p>
+		</blockquote>
+		<p>End For</p>
+	</blockquote>
+	<p>&nbsp;</p>
+	<div class="topic_passage_footer"></div>
+</div></div>
+<div class="rightColumn">
+<div class="newsMenu">
+<div class="newsMenuTitle">News Links:</div>
+<div class="newsMenuTopSpacer"></div>
+<div class="rightMenuYearItem"><a href="http://mnemstudio.org/news-2017.htm">2017 (0)</a></div>
+<div class="rightMenuMonthItem"><a href="http://mnemstudio.org/news-2017-12.htm">December (0)</a></div>
+<div class="rightMenuMonthItem"><a href="http://mnemstudio.org/news-2017-11.htm">November (0)</a></div>
+<div class="rightMenuMonthItem"><a href="http://mnemstudio.org/news-2017-10.htm">October (0)</a></div>
+<div class="rightMenuMonthItem"><a href="http://mnemstudio.org/news-2017-09.htm">September (0)</a></div>
+<div class="rightMenuMonthItem"><a href="http://mnemstudio.org/news-2017-08.htm">August (0)</a></div>
+<div class="rightMenuMonthItem"><a href="http://mnemstudio.org/news-2017-07.htm">July (0)</a></div>
+<div class="rightMenuMonthItem"><a href="http://mnemstudio.org/news-2017-06.htm">June (0)</a></div>
+<div class="rightMenuMonthItem"><a href="http://mnemstudio.org/news-2017-05.htm">May (0)</a></div>
+<div class="rightMenuMonthItem"><a href="http://mnemstudio.org/news-2017-04.htm">April (0)</a></div>
+<div class="rightMenuMonthItem"><a href="http://mnemstudio.org/news-2017-03.htm">March (0)</a></div>
+<div class="rightMenuMonthItem"><a href="http://mnemstudio.org/news-2017-02.htm">February (0)</a></div>
+<div class="rightMenuMonthItem"><a href="http://mnemstudio.org/news-2017-01.htm">January (0)</a></div>
+<div class="rightMenuYearItem"><a href="http://mnemstudio.org/news-2016.htm">2016 (0)</a></div>
+<div class="rightMenuYearItem"><a href="http://mnemstudio.org/news-2015.htm">2015 (0)</a></div>
+<div class="rightMenuYearItem"><a href="http://mnemstudio.org/news-2014.htm">2014 (0)</a></div>
+<div class="rightMenuYearItem"><a href="http://mnemstudio.org/news-2013.htm">2013 (32)</a></div>
+<div class="rightMenuYearItem"><a href="http://mnemstudio.org/news-2012.htm">2012 (242)</a></div>
+<div class="rightMenuYearItem"><a href="http://mnemstudio.org/news-2011.htm">2011 (217)</a></div>
+<div class="rightMenuYearItem"><a href="http://mnemstudio.org/news-2010.htm">2010 (185)</a></div>
+<div class="rightMenuYearItem"><a href="http://mnemstudio.org/news-2009.htm">2009 (20)</a></div>
+<div class="newsMenuBottomSpacer"></div>
+</div>
+		<div class="searchNewsLinks">
+			Search News Links:
+			<input type="text" name="searchNewsBox" id="searchNewsBox">
+			<input type="button" name="searchNewsButton" id="searchNewsButton" value="Search News" onclick="javascript: window.location=&#39;search.php?&amp;keywordBox=&#39; + document.getElementsByName(&#39;searchNewsBox&#39;).item(0).value + &#39;&amp;strategy=all&amp;section=news&#39;;">
+		</div></div>
+</div>
+<div class="mainFooter">
+	<div class="mainFooterStart">public void footer() {</div>
+	<div class="mainFooterContent">
+		<div class="mainFooterRow1"><a href="http://mnemstudio.org/about.php">About</a> | <a href="http://mnemstudio.org/contact.php">Contact</a> | Privacy Policy | <a href="http://mnemstudio.org/terms-of-service.php">Terms of Service</a> | <a href="http://mnemstudio.org/sitemap.php">Site Map</a></div>
+		<div class="mainFooterRow2">Copyright© 2009-2012 John McCullock. All Rights Reserved.</div>
+	</div>
+	<div class="mainFooterEnd">}</div>
+</div>
+</body></html>

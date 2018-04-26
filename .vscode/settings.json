@@ -1,4 +1,4 @@
 {
     "git.ignoreLimitWarning": true,
-    "python.pythonPath": "C:\\Users\\TABUL\\Anaconda3\\envs\\tensorflow\\python.exe"
+    "python.pythonPath": "/home/tabul/anaconda3/bin/python"
 }

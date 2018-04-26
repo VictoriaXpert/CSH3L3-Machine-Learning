@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<!-- saved from url=(0070)https://tpc.googlesyndication.com/safeframe/1-0-14/html/container.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>SafeFrame Container</title>
+  </head>
+  <body marginwidth="0" marginheight="0" leftmargin="0" topmargin="0">
+    <script>
+(function(){var b=this;var f=String.prototype.trim?function(a){return a.trim()}:function(a){return a.replace(/^[\s\xa0]+|[\s\xa0]+$/g,"")},g=function(a,c){return a<c?-1:a>c?1:0};var k;a:{var l=b.navigator;if(l){var m=l.userAgent;if(m){k=m;break a}}k=""};var ba=function(a,c){var h=aa;return Object.prototype.hasOwnProperty.call(h,a)?h[a]:h[a]=c(a)};var ca=-1!=k.indexOf("Opera"),n=-1!=k.indexOf("Trident")||-1!=k.indexOf("MSIE"),da=-1!=k.indexOf("Edge"),p=-1!=k.indexOf("Gecko")&&!(-1!=k.toLowerCase().indexOf("webkit")&&-1==k.indexOf("Edge"))&&!(-1!=k.indexOf("Trident")||-1!=k.indexOf("MSIE"))&&-1==k.indexOf("Edge"),q=-1!=k.toLowerCase().indexOf("webkit")&&-1==k.indexOf("Edge"),t=function(){var a=b.document;return a?a.documentMode:void 0},u;a:{var v="",w=function(){var a=k;if(p)return/rv:([^\);]+)(\)|;)/.exec(a);if(da)return/Edge\/([\d\.]+)/.exec(a);if(n)return/\b(?:MSIE|rv)[: ]([^\);]+)(\)|;)/.exec(a);if(q)return/WebKit\/(\S+)/.exec(a);if(ca)return/(?:Version)[ \/]?(\S+)/.exec(a)}();w&&(v=w?w[1]:"");if(n){var x=t();if(null!=x&&x>parseFloat(v)){u=String(x);break a}}u=v}var y=u,aa={},z=function(a){return ba(a,function(){for(var c=0,h=f(String(y)).split("."),S=f(String(a)).split("."),fa=Math.max(h.length,S.length),r=0;0==c&&r<fa;r++){var d=h[r]||"",e=S[r]||"";do{d=/(\d*)(\D*)(.*)/.exec(d)||["","","",""];e=/(\d*)(\D*)(.*)/.exec(e)||["","","",""];if(0==d[0].length&&0==e[0].length)break;c=g(0==d[1].length?0:parseInt(d[1],10),0==e[1].length?0:parseInt(e[1],10))||g(0==d[2].length,0==e[2].length)||g(d[2],e[2]);d=d[3];e=e[3]}while(0==c)}return 0<=c})},A;var B=b.document;A=B&&n?t()||("CSS1Compat"==B.compatMode?parseInt(y,10):5):void 0;var C;if(!(C=!p&&!n)){var D;if(D=n)D=9<=Number(A);C=D}C||p&&z("1.9.1");n&&z("9");var E=p||q||n&&z(11);var ea=/^([^;]+);(\d+);([\s\S]*)$/;try{var F,G=ea.exec(window.name);if(null===G)throw Error("Cannot parse serialized data");var H=+G[2],I=G[3];if(H>I.length)throw Error("Cannot parse serialized data");F={b:G[1],content:I.substr(0,H),a:I.substr(H)};var J;var K=window.location.hash;if(K){var L=K.match(/[&#]eid=([\d,]+)/);J=L?L[1].split(","):[]}else J=[];var M=J;M.indexOf&&0<=M.indexOf("21060230")||!E||(window.name="");var N=JSON.parse(F.a);N.goog_safeframe_hlt&&(b.goog_safeframe_hlt=N.goog_safeframe_hlt);N._context&&(b.AMP_CONTEXT_DATA=N._context);b.sf_={v:F.b,exp:M,cfg:N};var O=F.content,P=window;if(E){var Q=P.document;Q.open("text/html","replace");Q.write(O);Q.close()}else{var R=O,T;if(T=n&&z(7)&&!z(10)){var U=navigator.userAgent.match(/Trident\/([0-9]+.[0-9]+)/);T=6>(U?parseFloat(U[1]):0)}var V;if(V=T)a:{for(var W=0;W<R.length;++W)if(127<R.charCodeAt(W)){V=!0;break a}V=!1}if(V){for(var X=unescape(encodeURIComponent(R)),ha=Math.floor(X.length/2),Y=[],Z=0;Z<ha;++Z)Y[Z]=String.fromCharCode(256*X.charCodeAt(2*Z+1)+X.charCodeAt(2*Z));1==X.length%2&&(Y[ha]=X.charAt(X.length-1));R=Y.join("")}P.goog_content=R;P.location.replace("javascript:window.goog_content")}}catch(a){};}).call(this);
+    </script><meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"><script>var google_casm=["",0,null,0,0,null,1];</script><script></script><style>/* image styling */
+
+.ad-img-container {
+  overflow: hidden;
+  height: 160px;
+}
+
+.ad-img {
+  height: auto;
+  min-height: initial;
+  width: 100%;
+  max-height: 100%;
+}
+
+.ad-img-bg {
+  background-position: center;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+}
+
+.ad-advertiser-img-container {
+  padding-right: 10px;
+  height:auto;
+  max-height: 45px;
+}
+
+.ad-advertiser-img {
+  height: auto;
+  min-height: initial;
+  max-height: 100%;
+  max-width: 70px;
+}
+
+
+/* ad styling */
+
+.ad-bd-link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.ad-container {
+  position: relative;
+  font-family: 'Roboto', Arial, sans-serif;
+  color: #000;
+  font-size: 14px;
+  background: #fff;
+  word-wrap: break-word;
+}
+
+.ad-container:hover .ad-close {
+  visibility: visible;
+}
+
+.ad-container.ad-container-feed {
+  padding: 0 !important;
+  position: relative;
+  font-family: 'Roboto', Arial, sans-serif;
+  color: #000;
+  font-size: 14px;
+  background: #fff;
+}
+
+.ad-advertiser {
+  text-align: left;
+  vertical-align: middle;
+  border-spacing: 0;
+}
+
+.ad-advertiser-text {
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.ad-advertiser-img-container {
+  margin-right: 5px;
+  height: 45px;
+  max-height: 45px;
+}
+
+.ad-cta {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  padding: 5px 7px;
+  line-height: 1.3;
+  border: 1px solid #0080ff;
+  background-color: #fff;
+  color: #0080ff;
+  font-size: 12px;
+  border-radius: 2px;
+  font-family: "Roboto", Arial, sans-serif;
+}
+
+.ad-cta-feed {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1.2rem;
+  background-color: #fff;
+  color: #0080ff;
+  font-size: 13px;
+  font-family: "Roboto", Arial, sans-serif;
+}
+
+.ad-ft {
+  padding-top: 5px;
+  padding-bottom: 10px;
+}
+
+.ad-close {
+  position: absolute;
+  top: 0px;
+  right: 3px;
+  line-height: 20px;
+  width: 20px;
+  display: block;
+  font-size: 16px;
+  font-family: arial, sans-serif;
+  color: #999;
+  text-decoration: none;
+  text-align: center;
+  visibility: hidden;
+}
+
+.ad-img-container {
+  margin: 10px 0;
+}
+
+.ad-img-container-feed {
+  overflow: hidden;
+  margin: 0 0 10px;
+  height: 260px;
+}
+
+.ad-title {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 7px 0;
+  line-height: 18px;
+}
+
+.ad-description {
+  font-size: 12px;
+  font-weight: normal;
+  margin: 5px 0;
+}
+
+.ad-bd-link {
+  display: block;
+  position: relative;
+}
+
+.ad-wrapper {
+  background: #fff;
+}
+
+.ad-wrapper .ad-hd {
+  padding: 15px;
+  margin: 0;
+}
+
+.ad-container-compact {
+  padding: 15px;
+  border-top: 1px solid #ccc;
+}
+
+.ad-container-compact .ad-advertiser-text {
+  font-size: 12px;
+}
+
+.ad-container-compact .ad-ft {
+ margin-top: 5px;
+}
+
+.ad-container-compact .ad-advertiser {
+  margin-top: 0;
+}
+</style><script src="./ext.js.download"></script><script>var viewReq = new Array();function vu(u) {var i=new Image();i.src=u.replace("&amp;","&");viewReq.push(i);}</script><script>vu("https://securepubads.g.doubleclick.net/pcs/view?xai\u003dAKAOjsu7V0U8nX8EM3cjCOkXZ1CL5sY9q4G3rA1nytMseyiZC52LeiHsLNEXhHeAFJx51_3qokZ5zScnTcfXv1LyapcyErSv8f6Q3gmFB1BuxK1ENQFhkT2OSz8D6APQdpCVdu-ObmW83nrvXDnBssQeQ6n_9NFb7a-dkt_ZRNMb6E_PVYVw2yjCkSzgo9dTQ1aKaL6jnh8ZZ5gjwdFd8cLFsHnDrrMEGZxb-XpXLgoEnGgP1JB9t8BpvLF-BqVYrKyxnrnIgRxs9oVxQ5UxVPnZvpP27Fw9xaJpDARmVmpvwFXdiLcQjNr6e9GfR0OShkwhfB4H2l1A0d2wXVbtdbeLR-HCAM22O8oSpjEvo7eLmpqC4mPvgj-hFr26N84KjQy9o4XakK-J4HzV9XvHwWJa\u0026sig\u003dCg0ArKJSzDzA4sAr3wKPEAE\u0026urlfix\u003d1\u0026adurl\u003d")</script><div class="ad-container" id="js-container">
+    <a class="ad-bd-link" id="js-ad-click" href="http://adclick.g.doubleclick.net/pcs/click%253Fxai%253DAKAOjsvh3SLFzLSFZO8FVokXg0XQDs7lbKFrnwvSDsMVWmqmTEM3DjCz3OCnK3ahwXVzvO6FGhJzFEuBe9AkpESOj5L8uEtNWZQhkZE1OOilAzlcDkLBTjdSV7dnnel9Q6j5qZ2Uqj-TPRLH2I-hf5yGcpIFV6VrXASxA9RguaDRIoEBchy4r2MwviK1oYOCiEPOnaopVqaAuzr1LfIv9Z4qmPGf78bjV3IOKi5GwbKprVjMv2bAFw-sFn78RuTAKz_xRKR-WFhD7FsxYd7pG8iAyb1jqZQwGPXvaII_sErJQnu1bQhOlccGpCqRv1_q_Zm7QA%2526sig%253DCg0ArKJSzJtanGo3pR6XEAE%2526urlfix%253D1%2526adurl%253Dhttp://www.awin1.com/awclick.php%3Fgid%3D313833%26mid%3D6798%26awinaffid%3D413109%26linkid%3D686371%26clickref%3Dbus-python-prof-2L" target="_blank">
+      <div class="ad-bd">
+        <table class="ad-advertiser" width="100%">
+          <tbody><tr>
+            <td class="ad-advertiser-img-container" width="40px">
+                <img class="ad-advertiser-img" id="image" src="./imgad">
+            </td>
+            <td>
+              <div class="ad-advertiser-text">
+                edX
+              </div>
+            </td>
+          </tr>
+        </tbody></table>
+        <div class="ad-img-container">
+          <div class="ad-img-bg" style="background-image:url(&#39;https://tpc.googlesyndication.com/pagead/imgad?id=CICAgKCruPTG2QEQARgBMghsCxdlQJ_QuQ&#39;)"></div>
+        </div>
+      </div>
+      <div class="ad-title">
+        Learn Analytics in Python with Columbia University
+      </div>
+      <div class="ad-description">
+        Learn the fundamental of programming in Python and develop the ability to analyze data and make data-driven decisions.
+      </div>
+      <div class="ad-ft">
+        <div class="ad-cta">
+          Enroll now
+        </div>
+      </div>
+    </a>
+    <a href="javascript:" class="ad-close" id="js-ad-close">×</a>
+  </div>
+
+<script>
+var domain = 'https://www.researchgate.net',
+    clickTrackUrl = 'http://adclick.g.doubleclick.net/pcs/click?xai=AKAOjsvh3SLFzLSFZO8FVokXg0XQDs7lbKFrnwvSDsMVWmqmTEM3DjCz3OCnK3ahwXVzvO6FGhJzFEuBe9AkpESOj5L8uEtNWZQhkZE1OOilAzlcDkLBTjdSV7dnnel9Q6j5qZ2Uqj-TPRLH2I-hf5yGcpIFV6VrXASxA9RguaDRIoEBchy4r2MwviK1oYOCiEPOnaopVqaAuzr1LfIv9Z4qmPGf78bjV3IOKi5GwbKprVjMv2bAFw-sFn78RuTAKz_xRKR-WFhD7FsxYd7pG8iAyb1jqZQwGPXvaII_sErJQnu1bQhOlccGpCqRv1_q_Zm7QA&sig=Cg0ArKJSzJtanGo3pR6XEAE&urlfix=1&adurl=';
+
+clickTrackUrl = clickTrackUrl.replace('http:', '');
+
+function attachEvent(el, eventName, callback) {
+    if (el.addEventListener) {
+        el.addEventListener(eventName, callback);
+    } else if (el.attachEvent)  {
+        el.attachEvent(eventName, callback);
+    }
+}
+
+function postMessageRg(message, domain) {
+    if (window.postMessage) {
+        window.top.postMessage(message, domain);
+    } else {
+        return false;
+    }
+}
+
+function init() {
+// set up click handlers
+    attachEvent(document.getElementById('js-ad-click'), 'click', handleClickAd);
+    attachEvent(document.getElementById('js-ad-close'), 'click', handleClickClose);
+// fetch styling
+    postMessageRg('requestStyling', domain);
+
+    attachEvent(window, 'message', function (e) {
+        var data = e.data;
+        if (data && data.action === 'requestStyling') {
+            var head = document.head || document.getElementsByTagName('head')[0];
+            var css = data.css;
+            var length = css.length;
+            for (var i = 0; i < length; i++) {
+                var headLink = document.createElement('link');
+                headLink.href = css[i];
+                headLink.type = 'text/css';
+                headLink.rel = 'stylesheet';
+                head.appendChild(headLink);
+            }
+        }
+    });
+
+// track view 
+    postMessageRg('CreativeId:' + 138209231445 + ':/83500759/Native_Questions_ATF_Right/Secondary_Native_Questions_ATF_Right', domain);
+
+// check if there's an image and hide container if there isn't
+    var i = document.getElementById('image');
+    if (i.getAttribute('src') == '') {
+        i.style.display = 'none';
+    }
+}
+
+// handle click on X
+function handleClickClose() {
+    postMessageRg('blacklistCreativeId:' + 138209231445 + ':/83500759/Native_Questions_ATF_Right/Secondary_Native_Questions_ATF_Right', domain);
+}
+
+// track click on RG
+function trackClickRg() {
+    postMessageRg('adInteract:4398434101;adUnit:/83500759/Native_Questions_ATF_Right/Secondary_Native_Questions_ATF_Right', domain);
+}
+
+
+// handleClick
+function handleClickAd(e) {
+//    if (e.preventDefault) {
+//        e.preventDefault()
+//    }
+
+//    showDialog();
+    trackClickRg()
+    trackClickDfp();
+}
+
+init();
+
+// check if background header image has a valid url
+var bgImageUrl = 'https://tpc.googlesyndication.com/pagead/imgad?id=CICAgKCruPTG2QEQARgBMghsCxdlQJ_QuQ';
+if (bgImageUrl == '') {
+    document.getElementsByClassName('ad-img-container')[0].style.display ="none";
+}
+
+// check if background logo image has a valid url
+var bgLogoUrl = 'https://tpc.googlesyndication.com/pagead/imgad?id=CICAgKCruPS2chABGAEyCLlkW2ZTOGz5';
+if (bgLogoUrl == '') {
+    document.getElementsByClassName('ad-advertiser-img-container')[0].style.display ="none";
+}
+
+var adDescrMaxLength = 200;
+var adDescr = document.getElementsByClassName('ad-description')[0];
+var adDescrText = adDescr.innerHTML;
+var trimmedAdDescrText = adDescrText.length > adDescrMaxLength ?
+  adDescrText.substring(0, adDescrMaxLength - 3) + "..." :
+  adDescrText;
+adDescr.innerHTML = trimmedAdDescrText;
+
+</script>
+<script src="./osd_listener.js.download"></script><script type="text/javascript">osdlfm(-1,'','BJ09MztYiWpeBN8rHoAP86JC4CwAAAAAQATgByAEJwAIC4AIA4AQBoAYf0ggFCIBhEAE','',1804332763,true,'ud\u003d1\u0026la\u003d0\u0026alp\u003dxai\u0026alh\u003d3771034198\u0026',3,'CAASEuRoRRLFVePQU2FSCvRHy7_P_A','https://pagead2.googlesyndication.com/pcs/activeview?xai\u003dAKAOjssbq12GFrQnCZR6X-_QNjy8leDSm_vva17r92UOSO4rfvrSMcXHt0k-pNBbcLzzemDomP5CQjwWqXC0y9imHzLiXdwZut18R8A\u0026sig\u003dCg0ArKJSzOL7-J_1c8RtEAE');</script><script>if (window.top && window.top.postMessage) {window.top.postMessage('{"googMsgType":"adpnt"}','*');}</script><div style="bottom:0;right:0;width:100px;height:100px;background:initial !important;position:absolute !important;max-width:100% !important;max-height:100% !important;pointer-events:none !important;image-rendering:pixelated !important;z-index:2147483647;background-image:url(&#39;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACsAAAAWBAMAAACrl3iAAAAABlBMVEUAAAD+AciWmZzWAAAAAnRSTlMAApidrBQAAAB8SURBVBjTbZABDsAgCAPLD/j/aw0tFLKMyBx6YAH4t5Dx70bJ20RqdRRFoMBajsjloRXtfYg3jZsztfvtmMqtZG1Y68Z8OqmYMu7yzrp6T92B7akuL88NV4myUg2sbiIzne0SKtoHlms6PtOYOUq2aY5xJ+Gc88BOsEXTH6yTBesOtvDcAAAAAElFTkSuQmCC&#39;) !important"></div><script>
+if (document.attachEvent) {
+   document.attachEvent('onclick', trackAudienceClick);
+  } else {
+   document.addEventListener('click', trackAudienceClick);
+}
+
+function trackAudienceClick(){
+var axel = Math.random() + '';
+var a = axel * 10000000000000;
+var ap = document.createElement('img');
+ap.src = "https://pubads.g.doubleclick.net/activity;dc_iu=/83500759/DFPAudiencePixel;ord=" + a + ";dc_seg=417041557?";
+ap.width = 1;
+ap.height = 1;
+ap.border = 0;
+document.body.appendChild(ap);
+
+if (document.detachEvent) {
+   document.detachEvent('onclick', trackAudienceClick);
+  } else {
+   document.removeEventListener('click', trackAudienceClick);
+}
+
+}
+
+</script>
+  
+
+</body></html>
