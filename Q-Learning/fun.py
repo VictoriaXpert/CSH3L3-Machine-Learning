@@ -6,8 +6,4 @@ def load_environment(filename):
     with open(filename) as f:
         for line in f:
             env.append(line.split())
-    return np.array(env)
-
-
-if __name__ == '__main__':
-    env = load_environment("DataTugasML3.txt")
+    return np.array(env, dtype=int)
