@@ -1,3 +1,7 @@
+# Nama  : Aditya Alif Nugraha
+# NIM   : 1301154183
+# Kelas : IF-39-01
+
 import numpy as np
 import fun
 import random
@@ -7,6 +11,7 @@ import sys
 class QLearning:
     """
     Class Q-Learning implementing the Q-Learning Algorithm for grid world.
+    This code will be submitted to scikit-learn by Aditya Alif Nugraha.
     """
 
     def __init__(self, environment, gamma=0.9):
@@ -17,7 +22,8 @@ class QLearning:
         self.q_table = self.build_q_table()
         self.r_table = self.build_r_table()
         self.current_state = (0, 0)
-        self.finish_state = (9, 9)
+        self.finish_state = np.unravel_index(
+            np.argmax(environment, axis=None), environment.shape)
 
     def build_q_table(self):
         """Membangun Q table sejumlah grid dikali jumlah action untuk menyimpan hasil learning."""
@@ -122,5 +128,5 @@ class QLearning:
                 rewards += self.environment[track[0], track[1]]
             return tracks, rewards
         except:
-            print("Add more episodes please!")
+            print("Please add more episodes!")
             sys.exit(0)

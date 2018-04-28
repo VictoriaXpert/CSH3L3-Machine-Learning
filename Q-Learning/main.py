@@ -1,3 +1,7 @@
+# Nama  : Aditya Alif Nugraha
+# NIM   : 1301154183
+# Kelas : IF-39-01
+
 import pandas as pd
 import fun
 from qlearning import QLearning
@@ -9,7 +13,7 @@ if __name__ == '__main__':
     print(env)
 
     ql = QLearning(env)
-    ql.fit(30)
+    ql.fit(50)
     tracks, rewards = ql.predict()
 
     # print(ql.q_table)
