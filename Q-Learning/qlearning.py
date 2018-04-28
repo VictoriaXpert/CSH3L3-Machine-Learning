@@ -21,6 +21,7 @@ class QLearning:
         self.gamma = gamma
         self.q_table = self.build_q_table()
         self.r_table = self.build_r_table()
+        self.initial_state = (0, 0)
         self.current_state = (0, 0)
         self.finish_state = np.unravel_index(
             np.argmax(environment, axis=None), environment.shape)
@@ -105,16 +106,16 @@ class QLearning:
 
     def fit(self, episodes):
         """Melakukan training."""
-        self.current_state = (0, 0)
         for _ in range(episodes):
+            self.current_state = (random.randint(0, 9), random.randint(0, 9))
             while self.current_state != self.finish_state:
                 self.update_q()
-            self.current_state = (random.randint(0, 9), random.randint(0, 9))
 
     def predict(self):
         """Mendapatkan solusi terbaik berupa jalur dan total rewards."""
         try:
             tracks = []
+            rewards = 0
             self.current_state = (0, 0)
             while self.current_state != self.finish_state:
                 q_actions = list(self.q_table[self.current_state].keys())
@@ -123,9 +124,8 @@ class QLearning:
                 action = q_actions[np.argmax(q_rewards)]
                 self.current_state = self.getNextState(action)
                 tracks.append(self.current_state)
-            rewards = 0
-            for track in tracks:
-                rewards += self.environment[track[0], track[1]]
+                rewards += self.environment[self.current_state[0],
+                                            self.current_state[1]]
             return tracks, rewards
         except:
             print("Please add more episodes!")
