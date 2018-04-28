@@ -1,6 +1,7 @@
 import numpy as np
 import fun
 import random
+import sys
 
 
 class QLearning:
@@ -58,9 +59,7 @@ class QLearning:
                     r_table[(i, j)]["W"] = self.environment[i, j-1]
         return r_table
 
-    def update_q(self):
-        """Mengupdate nilai Q di Q table pada current state."""
-        action = self.select_action()
+    def getNextState(self, action):
         if action == "N":
             next_state = (self.current_state[0]-1, self.current_state[1])
         elif action == "E":
@@ -69,16 +68,26 @@ class QLearning:
             next_state = (self.current_state[0]+1, self.current_state[1])
         elif action == "W":
             next_state = (self.current_state[0], self.current_state[1]-1)
+        return next_state
+
+    def update_q(self):
+        """Mengupdate nilai Q di Q table pada current state."""
+        action = self.select_action()
+        next_state = self.getNextState(action)
         self.q_table[self.current_state][action] = self.q_formula(
             self.current_state, next_state, action)
         self.current_state = next_state
 
-    def select_action(self):
-        """Memilih aksi yang dapat dilakukan."""
+    def getPossibleAction(self):
         possible_action = []
         for action, reward in self.r_table[self.current_state].items():
             if reward != None:
                 possible_action.append(action)
+        return possible_action
+
+    def select_action(self):
+        """Memilih aksi yang dapat dilakukan."""
+        possible_action = self.getPossibleAction()
         action = random.sample(possible_action, 1)
         return action[0]
 
@@ -104,24 +113,14 @@ class QLearning:
             while self.current_state != self.finish_state:
                 q_actions = list(self.q_table[self.current_state].keys())
                 q_rewards = list(self.q_table[self.current_state].values())
-                # print(q_actions, q_rewards)
+
                 action = q_actions[np.argmax(q_rewards)]
-                if action == "N":
-                    self.current_state = (
-                        self.current_state[0]-1, self.current_state[1])
-                elif action == "E":
-                    self.current_state = (
-                        self.current_state[0], self.current_state[1]+1)
-                elif action == "S":
-                    self.current_state = (
-                        self.current_state[0]+1, self.current_state[1])
-                elif action == "W":
-                    self.current_state = (
-                        self.current_state[0], self.current_state[1]-1)
+                self.current_state = self.getNextState(action)
                 tracks.append(self.current_state)
             rewards = 0
             for track in tracks:
                 rewards += self.environment[track[0], track[1]]
+            return tracks, rewards
         except:
-            print("Please add the number of episodes.")
-        return tracks, rewards
+            print("Add more episodes please!")
+            sys.exit(0)
